@@ -1,0 +1,8 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "User interface for AcciMap."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
