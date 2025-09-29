@@ -1,4 +1,4 @@
-# AC 215: Car Accident Predictions for Metro Areas
+# AcciMap: Car Accident Predictions for Metro Areas
 > [!NOTE]
 > **Authors:** Michelle Chang, Luc Chen, Daniel Li, Ellen Ma
 
