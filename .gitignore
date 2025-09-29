@@ -1,3 +1,7 @@
 # Data
 **/*.csv
 **/*.zip
+
+# Secrets
+**/secrets/
+**/*.json
