@@ -6,7 +6,8 @@
 **/secrets/
 **/*.json
 
-# Virtual environments
+# Python virtual environments, caching, etc.
 **/.venv
 **/__pycache__/
 **/*.pyc
+**/.ruff_cache/
