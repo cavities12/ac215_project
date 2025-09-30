@@ -5,3 +5,8 @@
 # Secrets
 **/secrets/
 **/*.json
+
+# Virtual environments
+**/.venv
+**/__pycache__/
+**/*.pyc
