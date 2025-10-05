@@ -33,5 +33,4 @@ COPY . ./
 # Sync with uv.
 RUN uv sync
 
-ENTRYPOINT ["/bin/bash"]
-CMD ["-c", "source /home/app/.venv/bin/activate && exec bash"]
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]

@@ -12,7 +12,7 @@ from tempfile import TemporaryDirectory
 BUCKET = "accimap-data"
 
 # Streaming chunk size.
-CHUNK_SIZE = 100_000
+CHUNK_SIZE = 200_000
 
 
 def clean(df: pd.DataFrame) -> pd.DataFrame:
@@ -27,12 +27,12 @@ def main():
     bucket = client.bucket(BUCKET)
     print("Client successfully established connection with GCP.")
 
-    for blob in client.list_blobs(BUCKET, prefix="bronze/csv/"):
+    for blob in client.list_blobs(BUCKET, prefix="accidents/csv/"):
         if not blob.name.endswith(".csv"):
             continue
 
         # Rewrite to a parquet file.
-        dst = Path("bronze/parquet") / Path(blob.name).relative_to("bronze/csv")
+        dst = Path("accidents/parquet") / Path(blob.name).relative_to("accidents/csv")
         dst = dst.with_suffix(".parquet")
 
         # Temporary local file for dataframe conversion.
@@ -40,7 +40,7 @@ def main():
             tmp_path = Path(tmp_dir) / dst.name
             writer = None
 
-            # Read the .csv file in chunks of 100,000 rows.
+            # Read the .csv file in chunks of CHUNK_SIZE rows.
             with blob.open("rb") as f:
                 for chunk in pd.read_csv(f, chunksize=CHUNK_SIZE):
                     chunk = clean(chunk)
