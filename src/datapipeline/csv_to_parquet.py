@@ -1,6 +1,6 @@
 import io
 import os
-import polars as pl
+import pandas as pd
 
 from google.cloud import storage
 from pathlib import Path
@@ -25,12 +25,13 @@ def main():
 
         # Create a polars dataframe from the csv file.
         print(f"Downloading {blob.name}...")
-        df = pl.read_csv(blob.download_as_bytes())
+        with blob.open("rb") as f:
+            df = pd.read_csv(f)
         print(f"Downloaded {blob.name}!")
 
         # Write into a local buffer.
         buf = io.BytesIO()
-        df.write_parquet(buf)
+        df.to_parquet(buf, index=False)
 
         # Rewrite to a parquet file.
         dst = Path("bronze/parquet") / Path(blob.name).relative_to("bronze/csv")

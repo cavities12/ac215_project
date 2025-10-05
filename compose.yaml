@@ -1,0 +1,6 @@
+services:
+  datapipeline:
+    build:
+      context: ./src/datapipeline
+      dockerfile: Dockerfile
+    image: datapipeline

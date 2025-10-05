@@ -28,7 +28,7 @@ RUN useradd -ms /bin/bash app && \
 # Switch to the new user.
 USER app
 WORKDIR /app
-COPY . ./
+COPY . .
 
 # Sync with uv.
 RUN uv sync
