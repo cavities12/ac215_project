@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Configuration details.
-IMAGE="datapipeline"
+IMAGE="ui"
 SCRIPT_DIR="$(dirname "$0")"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../" && pwd)"
 SECRETS_DIR="$PROJECT_ROOT/secrets"

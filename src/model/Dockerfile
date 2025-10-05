@@ -28,10 +28,9 @@ RUN useradd -ms /bin/bash app && \
 # Switch to the new user.
 USER app
 WORKDIR /app
-COPY . ./
+COPY . .
 
 # Sync with uv.
 RUN uv sync
 
-ENTRYPOINT ["/bin/bash"]
-CMD ["-c", "source /app/.venv/bin/activate && exec bash"]
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
