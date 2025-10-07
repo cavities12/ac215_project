@@ -5,4 +5,13 @@ description = "Model (training, fine-tuning) for AcciMap."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pandas>=2.3.3",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "xgboost>=1.7.0",
+    "torch>=2.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "google-cloud-storage>=3.4.0",
+    "pyarrow>=21.0.0",
 ]
