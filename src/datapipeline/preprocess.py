@@ -17,8 +17,8 @@ from google.cloud import storage
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-# Add relative import path
-sys.path.append(str(Path(__file__).parent.parent))
+#
+#sys.path.append(str(Path(__file__).parent.parent))
 
 # GCS bucket name.
 BUCKET = "accimap-data"
